@@ -19,21 +19,21 @@ public class SE_1954달팽이숫자 {
 			//n-1 2번 n-2 2번 .... 1 2번 
 			//방향은 모듈4로 결정, 총 2n-2번 돌아 
 			int cnt = 1;
-			int k;
-		 while(cnt <= 2*N-2) {
-			
-			 
+			while(cnt < 2*N-2) {
 				//N-1,,N-2,,,N-3,,,1 순으로 배열에 입력하는 숫자개수가 줄어듦.
-				//이를 두번 해야함
-			 if(cnt%4 ==1 || cnt%4 ==2) {
-				 k = N-1 -2*(cnt/4);
-			 }else if(cnt%4 ==3) {
-				 k = N-2-2*(cnt/4);
-			 }else k = N-2-2*((cnt/4)-1);
-
+				//이를 두번 해야함.
+//				int flag =0;
+//				int k = N-1;
+				for(int k = N-1; k>0;k--) {
+					for(int l=0; l<2; l++) {
+						
+//						if(flag ==1) {
+//						flag =0;
+//						k --;
+//						}
 						switch(cnt%4) {
 						case 1:
-					//아래로 내려가는 방향으로 N-1부터 2씩 줄어드는 만큼의 숫자
+					//아래로 내려가는 방향으로 
 					//열 고정. 행 +됨.
 					//행 시작 인덱스 : 1/ 2/ 3 / .. 1씩 늘어남
 					//열 인덱스 : N-1부터 시작해서 1씩 줄어들기
@@ -47,6 +47,7 @@ public class SE_1954달팽이숫자 {
 							numArr[x][N-1-(cnt/4)] = n++;
 							}
 							cnt++;
+//							flag = 1;
 							break;
 					
 						case 2:
@@ -56,14 +57,13 @@ public class SE_1954달팽이숫자 {
 							//행 인덱스 : N-1부터 시작해서 1씩 줄어들기
 									//2번째, 6번째, 10번째...
 									//4로 나눈 몫 0/1/2
-									//N-1   N-3   N-5
-							//k변화 : N-1, N-3, N-5
-							// k = N-1 -2*(cnt/4)
-				
-								for(int x=N-2-((cnt)/4); x>=(cnt/4); x--) {
-									numArr[N-1-((cnt)/4)][x] = n++;	
+									//N-1   N-2   N-3
+								for(int x=N-2-((cnt)/4); x>=N-1-k; x--) {
+									numArr[N-1-((cnt)/4)][x] = n++;
+									System.out.println(k);
 								}
 								cnt++;
+//								flag = 1;
 								break;
 					
 						case 3:
@@ -72,13 +72,11 @@ public class SE_1954달팽이숫자 {
 							//열 인덱스 : 0부터 시작해서 1씩 늘어남.
 									//3번째, 7번째, 11번째...
 									//4로 나눈 몫 0/1/2 => 이게 열번호
-							//k : k = N-2-2*(cnt/4); 
-							// k: N-2, N-4, N-6 ..
-							// x=(cnt/4)+1; x<=(cnt/4)+k; x
-							for(int x=N-2-((cnt)/4); x>(cnt/4); x--) {
+							for(int x=N-2-((cnt)/4); x>=N-1-k; x--) {
 									numArr[x][cnt/4] = n++;
 							}
 							cnt++;
+//							flag = 1;
 							break;
 					
 						case 0:
@@ -87,14 +85,18 @@ public class SE_1954달팽이숫자 {
 							//행 인덱스 : 1부터 시작해서 1씩 늘어남.
 									//4번째, 8번째, 12번째...
 									//4로 나눈 몫 1/2/3 => 이게 행번호
-							for(int x=(cnt/4); x<(cnt/4)+k; x++) {
+							for(int x=1; x<=k; x++) {
 									numArr[cnt/4][x] = n++;
 								
 							}
 							cnt++;
+//							flag = 1;
 							break;
 					
-						}//switch 종료			
+						}//switch 종료
+					}//2번 반복 for문 종료
+				}//k = N-1 for문 종료
+//				
 			}//while문 종료
 		System.out.println("#"+t);
 		for(int r =0; r<N; r++) {
