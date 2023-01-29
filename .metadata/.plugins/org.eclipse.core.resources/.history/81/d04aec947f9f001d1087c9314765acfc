@@ -17,6 +17,7 @@ public class Baek_1032명령프롬프트 {
 			for(int j=0; j<len; j++) {
 				if (titleArr[j] != c.charAt(j)) {
 					titleArr[j] = "?".charAt(0);
+					System.out.println(titleArr[j]);
 				}
 			}
 		}
