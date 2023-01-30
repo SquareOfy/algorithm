@@ -23,9 +23,9 @@ public class SE_1974스도쿠검증 {
 				int[] rCheckArr = {0,0,0,0,0,0,0,0,0};
 				int[] cCheckArr = {0,0,0,0,0,0,0,0,0};
 				for(int j=0; j<9; j++) {
-					rCheckArr[sudoku[i][j]-1] += 1;
+					rCheckArr[sudoku[i][j]-1] += 1; //i행 체크					
+					cCheckArr[sudoku[j][i]-1] += 1; //i열 체크
 					
-					cCheckArr[sudoku[j][i]-1] += 1;
 					
 					if(rCheckArr[j] > 1 || cCheckArr[j]>1) {
 						flag =0;
@@ -34,12 +34,13 @@ public class SE_1974스도쿠검증 {
 				}
 				for(int l=0; l<7; l+=3) {
 					
-					for(int j=0; j<7; j+=3) {
+					for(int j=0; j<7; j+=3) { //(l,j)부터 3x3 배열 체크
 						int[] CheckArr = {0,0,0,0,0,0,0,0,0};
-						for(int k=0; k<3;k++) {
-							CheckArr[sudoku[l][j+k]-1] += 1;
-							CheckArr[sudoku[l+k][j]-1] += 1;
-							CheckArr[sudoku[l][j]-1] -= 1;
+						for(int x=0; x<3;x++) {
+							for(int y=0; y<3; y++) {
+								rCheckArr[sudoku[l+x][j+y]-1] += 1;
+							}
+							
 							if(CheckArr[i] > 1 ) {
 								flag =0;
 								break outer;
