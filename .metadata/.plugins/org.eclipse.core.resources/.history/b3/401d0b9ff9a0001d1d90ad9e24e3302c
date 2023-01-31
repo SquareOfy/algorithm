@@ -27,7 +27,8 @@ public class SE_1974스도쿠검증 {
 				for(int j=0; j<9; j++) {
 					rCheckArr[sudoku[i][j]-1] += 1; //i행 체크					
 					cCheckArr[sudoku[j][i]-1] += 1; //i열 체크
-
+					System.out.println(Arrays.toString(rCheckArr));
+					System.out.println(Arrays.toString(cCheckArr));
 				}
 				for(int k=0; k<9; k++) {
 					if(rCheckArr[k] > 1 || cCheckArr[k]>1) {
@@ -50,6 +51,7 @@ public class SE_1974스도쿠검증 {
 						for(int k=0; k<9; k++) {
 							if(CheckArr[k] > 1 ) {
 								flag =0;
+								System.out.println("밑 0");
 								break outer2;
 							}
 						}
