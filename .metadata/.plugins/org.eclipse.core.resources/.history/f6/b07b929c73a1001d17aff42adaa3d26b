@@ -1,0 +1,51 @@
+package com.ssafy.ws.step4;
+
+public class ReviewManagerImpl implements IReviewManager {
+	private static int MAX_REVIEW_SIZE = 100;
+	private Review[] reviews = new Review[MAX_REVIEW_SIZE];
+	private int reviewSize;
+	
+	private static ReviewManagerImpl instance;
+	
+	//생성자
+	private ReviewManagerImpl() { }
+	
+	public ReviewManagerImpl getinstance() {
+		return instance;
+		
+
+}
+
+	@Override
+	public void addReview(Review review) {
+		reviews[reviewSize++] = review;
+		
+	}
+
+	@Override
+	public void removeReview(int reviewId) {
+		for(int i=0; i<this.restaurantSize; i++) {
+			if(restaurants[i].getResId() == resid) {
+				this.restaurants[i] = null;
+				for(int j=i; i<this.restaurantSize-1; i++) {
+					this.restaurants[i] = this.restaurants[i+1];
+		
+	}
+
+	@Override
+	public Review[] getReviewList() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Review searchByreviewId(int reviewid) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Review[] getRestaurantReview(int resId) {
+		// TODO Auto-generated method stub
+		return null;
+	}

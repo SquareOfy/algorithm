@@ -8,8 +8,9 @@ public class SE_1974스도쿠검증 {
 	public static void main(String[] args) {
 
 		Scanner sc = new Scanner(System.in);
-		
+		//테스트케이스 입력값 받기
 		int T = sc.nextInt();
+		// return, 중간에 0으로 바뀌면 0으로 출력될 예정
 		int flag = 1;
 		int[][] sudoku = new int[9][9];
 	

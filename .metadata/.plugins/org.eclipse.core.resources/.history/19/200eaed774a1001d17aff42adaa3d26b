@@ -1,0 +1,123 @@
+package com.ssafy.ws.step4;
+
+/**
+ * 인터페이스 분리 및 싱글톤 테스트 클래스
+ */
+public class RestaurantTest {
+	public static void main(String[] args) {
+				Scanner sc = new Scanner(System.in);
+				
+			//싱글톤패턴인 클래스의 객체 불러오기
+				RestaurantManagerImpl res = RestaurantManagerImpl.getinstance();
+				MovieManagerImpl mm = MovieManagerImpl.getinstance();
+				
+			//영화 목록 입력해보기
+				Movie m1 = new Movie();
+				Movie m2 = new Movie();
+				
+				SeriesMovie s1 = new SeriesMovie();
+				SeriesMovie s2 = new SeriesMovie();
+				
+				m1.setId(938651);
+				m1.setTitle("About Time");
+				m1.setGenre("로맨스");
+				m1.setDirector("리차드 커티스");
+				m1.setRunningTime(4);
+				
+				m2.setId(938652);
+				m2.setTitle("해리포터와 불의 잔");
+				m2.setGenre("판타지");
+				m2.setDirector("마이크 뉴웰");
+				m2.setRunningTime(3);
+				
+				//일반영화 add
+				mm.add(m1);
+				mm.add(m2);
+
+				s1.setId(938651);
+				s1.setTitle("해리포터");
+				s1.setDirector("누군가");
+				s1.setGenre("판타지");
+				s1.setRunningTime(2);
+				s1.setSeriesNum(1);
+				s1.setEpisode("마법사의 돌");
+				
+				s2.setId(938651);
+				s2.setTitle("해리포터");
+				s2.setDirector("누군가");
+				s2.setGenre("판타지");
+				s2.setRunningTime(1);
+				s2.setSeriesNum(1);
+				s2.setEpisode("비밀의 방");
+				
+				mm.add(s1);
+				mm.add(s2);
+			//실행 동작 입력
+				System.out.println("다음 중 실행하고자 하는 동작 번호를 입력하세요.");
+				System.out.println("1.영화 등록 \n2.영화 조회 \n3.영화 검색 \n4.영화 평균시간 조회");
+				int input = sc.nextInt();
+				
+			//영화 등록
+				if (input == 1 ) {
+					Movie m = new Movie();
+					System.out.println("ID : ");
+					m.setId(sc.nextInt());
+					
+					System.out.println("Title : ");
+					m.setTitle(sc.next());
+					
+					System.out.println("Director : ");
+					m.setDirector(sc.next());
+					
+					System.out.println("Genre : ");
+					m.setGenre(sc.next());
+					
+					System.out.println("Running Time : ");
+					m.setRunningTime(sc.nextInt());
+					
+					mm.add(m);
+					
+			//영화 조회
+				}else if(input ==2) {
+					System.out.println("다음 중 조회하고자 하는 영화종류의 번호를 입력하세요.");
+					System.out.println("1.전체 영화 \n2.일반 영화 \n3.시리즈 영화");
+					int i = sc.nextInt();
+					if (i==1) {
+						//영화 전체리스트 출력하기
+						for(Movie m: mm.getList()) {
+							System.out.println(m);
+						}
+						
+					}else if(i==2) {
+						//일반영화 리스트 출력하기
+						for(Movie m: mm.getMovies()) {
+							System.out.println(m);
+						}
+					}else if(i==3) {
+						//시리즈영화 리스트 출력하기
+						for(Movie s: mm.getSeriesMovies()) {
+							System.out.println(s);
+						}
+					}else {System.out.println("잘못된 번호를 입력하였습니다.");}
+					
+				}else if(input==3) { 
+			//영화 검색
+					System.out.println("검색할 영화 제목을 입력하세요.");
+					String findTitle = sc.next();
+					for(Movie k : mm.searchByTitle(findTitle)) {
+						System.out.println(k);
+					}
+			//영화 평균시간 조회
+				}else if(input ==4) {
+					System.out.println(mm.getRunningTimeAvg());
+					
+			//그 외 번호 입력했을 때,		
+				}else {System.out.println("잘못된 번호를 입력하였습니다.");
+				
+			
+				}
+			}
+		}
+
+	}
+}

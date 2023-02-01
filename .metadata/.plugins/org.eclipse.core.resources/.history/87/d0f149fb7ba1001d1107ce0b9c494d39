@@ -1,0 +1,17 @@
+import java.util.Scanner;
+
+import org.omg.PortableInterceptor.SYSTEM_EXCEPTION;
+
+public class Baek_11382꼬마정민 {
+
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		long A = sc.nextInt();
+		long B = sc.nextInt();
+		long C = sc.nextInt();
+		
+		System.out.println(A+B+C);
+
+	}
+
+}

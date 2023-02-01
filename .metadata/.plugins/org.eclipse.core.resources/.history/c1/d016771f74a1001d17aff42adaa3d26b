@@ -1,0 +1,79 @@
+package com.ssafy.ws.step4;
+
+import java.util.Arrays;
+
+public class ReviewManagerImpl implements IReviewManager {
+	private static int MAX_REVIEW_SIZE = 100;
+	private Review[] reviews = new Review[MAX_REVIEW_SIZE];
+	private int reviewSize;
+	
+	private static ReviewManagerImpl instance;
+	
+	//생성자
+	private ReviewManagerImpl() { }
+	
+	public ReviewManagerImpl getinstance() {
+		return instance;
+		
+
+}
+
+	@Override
+	public void addReview(Review review) {
+		reviews[reviewSize++] = review;
+		
+	}
+
+	@Override
+	public void removeReview(int reviewId) {
+		for(int i=0; i<this.reviewSize; i++) {
+			if(this.reviews[i].getResId() == reviewId) {
+				this.reviews[i] = null;
+				for(int j=i; i<this.reviewSize-1; i++) {
+					this.reviews[i] = this.reviews[i+1];
+				}	
+			}
+		}
+	}
+
+	@Override
+	public Review[] getReviewList() {
+		return Arrays.copyOf(this.reviews, this.reviewSize);
+	}
+
+	@Override
+	public Review[] searchByreviewId(int reviewid) {
+		int cnt = 0;
+		for(int i=0; i<this.reviewSize; i++) {
+			if(this.reviews[i].getReveiwId() == reviewid) {
+				cnt ++;
+			}
+		}
+		Review[] results = new Review[cnt];
+		int idx = 0;
+		for(int i=0; i<this.reviewSize; i++) {
+			if(this.reviews[i].getReveiwId() == reviewid) {
+				results[idx++] = this.reviews[i];
+			}
+		}
+		return results;
+	}
+
+	@Override
+	public Review[] getRestaurantReview(int resId) {
+		int cnt = 0;
+		for(int i=0; i<this.reviewSize; i++) {
+			if(this.reviews[i].getresId() == resid) {
+				cnt ++;
+			}
+		}
+		Review[] results = new Review[cnt];
+		int idx = 0;
+		for(int i=0; i<this.reviewSize; i++) {
+			if(this.reviews[i].getResId() == reviewid) {
+				results[idx++] = this.reviews[i];
+			}
+		}
+		return results;
+	}
+}

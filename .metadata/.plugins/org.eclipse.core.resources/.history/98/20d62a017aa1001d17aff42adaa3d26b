@@ -1,0 +1,183 @@
+package com.ssafy.ws.step4;
+
+import java.util.Arrays;
+import java.util.Scanner;
+
+/**
+ * 인터페이스 분리 및 싱글톤 테스트 클래스
+ */
+public class RestaurantTest {
+	public static void main(String[] args) {
+				Scanner sc = new Scanner(System.in);
+				
+			//싱글톤패턴인 클래스의 객체 불러오기
+				RestaurantManagerImpl rs = RestaurantManagerImpl.getInstance();
+				ReviewManagerImpl rv = ReviewManagerImpl.getInstance();
+				
+			//레스토랑 목록 입력해보기
+				Restaurant rs1 = new Restaurant();
+				
+				rs1.setAddress("유성구 봉명동");
+				rs1.setName("맥도날드");
+				rs1.setRate(20);
+				rs1.setResId(1);
+				rs1.setSignatureMenu("빅맥");
+				
+				rs.addRestaurant(rs1);
+				
+				
+			//리뷰 목록 입력하기
+				Review rv1 = new Review();
+				rv1.setResId(1);
+				rv1.setReveiwId(9702);
+				rv1.setWriter("윤땡");
+				rv1.setContent("쏘쏘");
+				
+				
+			//실행 동작 입력
+				System.out.println("다음 중 실행하고자 하는 동작 번호를 입력하세요.");
+				System.out.println("1.식당목록 \n2.리뷰목록");
+				int n1 = sc.nextInt();
+				if (n1 ==1) {
+					System.out.println("1.식당 등록 \n2.식당 삭제 \n3.식당 조회 \n4.식당 검색");
+					int input = sc.nextInt();
+					//식당 등록
+					if (input == 1 ) {
+						Restaurant m = new Restaurant();
+						System.out.println("resID : ");
+						m.setResId(sc.nextInt());
+						
+						System.out.println("Name : ");
+						m.setName(sc.next());
+						
+						System.out.println("Address : ");
+						m.setAddress(sc.next());
+						
+						System.out.println("SignatureMenu : ");
+						m.setSignatureMenu(sc.next());
+						
+						System.out.println("Rate : ");
+						m.setRate(sc.nextInt());
+						
+						rs.addRestaurant(m);
+						
+						
+					}else if(input == 2) {
+					System.out.println("삭제할 식당의 id를 입력하세요.");
+					int id = sc.nextInt();
+					rs.removeRestaurant(id);
+					System.out.printf("%d %s이(가) 삭제되었습니다.\n", id, rs.searchByresid(id));
+					
+					//식당 조회
+					}else if(input ==3) {
+						System.out.println("다음 중 조회하고자 하는 식당종류의 번호를 입력하세요. \n1.전체 \n2.한식 \n3.한식 제외");
+						int c = sc.nextInt();
+						if(c == 1) {
+							System.out.println(Arrays.toString(rs.getRestaurantList()));
+						}else if(c==2) {
+							System.out.println(Arrays.toString(rs.getkoreanRestaurants()));
+						}else if(c==3) {
+							System.out.println(Arrays.toString(rs.getNonKoreanRestaurants()));
+						}else System.out.println("잘못된 번호를 입력하였습니다.");
+						
+						//식당 검색
+					}else if(input ==4) {
+						System.out.println("검색할 식당의 ID를 입력하세요.");
+						int id = sc.nextInt();
+						System.out.println(Arrays.toString(rs.searchByresid(id)));
+						
+					}
+				}else if (n1 ==2) {
+					System.out.println("1.리뷰 등록 \n2.리뷰 삭제 \n3.리뷰 조회 \n4.리뷰 검색");
+					int input = sc.nextInt();
+					if (input == 1 ) {
+						Review m = new Review();
+						System.out.println("reviewID : ");
+						m.setReveiwId(sc.nextInt());
+						
+						System.out.println("ResID : ");
+						m.setResId(sc.nextInt());
+						
+						System.out.println("Writer : ");
+						m.setWriter(sc.next());
+						
+						System.out.println("Content : ");
+						m.setContent(sc.next());
+						
+						
+						rv.addReview(m);
+						
+						
+					}else if(input == 2) {
+					System.out.println("삭제할 식당의 id를 입력하세요.");
+					int id = sc.nextInt();
+					rs.removeRestaurant(id);
+					System.out.printf("%d %s이(가) 삭제되었습니다.\n", id, rs.searchByresid(id));
+					
+					//식당 조회
+					}else if(input ==3) {
+						System.out.println("다음 중 조회하고자 하는 식당종류의 번호를 입력하세요. \n1.전체 \n2.한식 \n3.한식 제외");
+						int c = sc.nextInt();
+						if(c == 1) {
+							System.out.println(Arrays.toString(rs.getRestaurantList()));
+						}else if(c==2) {
+							System.out.println(Arrays.toString(rs.getkoreanRestaurants()));
+						}else if(c==3) {
+							System.out.println(Arrays.toString(rs.getNonKoreanRestaurants()));
+						}else System.out.println("잘못된 번호를 입력하였습니다.");
+						
+						//식당 검색
+					}else if(input ==4) {
+						System.out.println("검색할 식당의 ID를 입력하세요.");
+						int id = sc.nextInt();
+						System.out.println(Arrays.toString(rs.searchByresid(id)));
+				}else System.out.println("잘못된 번호를 입력하였습니다.");
+				
+				int input = sc.nextInt();
+				
+			
+					
+			//영화 조회
+				}else if(input ==2) {
+					System.out.println("다음 중 조회하고자 하는 영화종류의 번호를 입력하세요.");
+					System.out.println("1.전체 영화 \n2.일반 영화 \n3.시리즈 영화");
+					int i = sc.nextInt();
+					if (i==1) {
+						//영화 전체리스트 출력하기
+						for(Movie m: mm.getList()) {
+							System.out.println(m);
+						}
+						
+					}else if(i==2) {
+						//일반영화 리스트 출력하기
+						for(Movie m: mm.getMovies()) {
+							System.out.println(m);
+						}
+					}else if(i==3) {
+						//시리즈영화 리스트 출력하기
+						for(Movie s: mm.getSeriesMovies()) {
+							System.out.println(s);
+						}
+					}else {System.out.println("잘못된 번호를 입력하였습니다.");}
+					
+				}else if(input==3) { 
+			//영화 검색
+					System.out.println("검색할 영화 제목을 입력하세요.");
+					String findTitle = sc.next();
+					for(Movie k : mm.searchByTitle(findTitle)) {
+						System.out.println(k);
+					}
+			//영화 평균시간 조회
+				}else if(input ==4) {
+					System.out.println(mm.getRunningTimeAvg());
+					
+			//그 외 번호 입력했을 때,		
+				}else {System.out.println("잘못된 번호를 입력하였습니다.");
+				
+			
+				}
+			}
+		}
+
+	}
+}
