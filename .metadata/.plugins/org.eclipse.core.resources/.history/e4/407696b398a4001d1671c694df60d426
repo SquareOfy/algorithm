@@ -1,0 +1,12 @@
+import java.io.BufferedWriter;
+import java.io.OutputStreamWriter;
+
+public class Baek_3052나머지 {
+
+	public static void main(String[] args) {
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		BufferedWriter bw = new BufferedWriter(OutputStreamWriter(System.in));
+
+	}
+
+}

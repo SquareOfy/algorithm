@@ -1,0 +1,36 @@
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
+
+public class Baek_3052나머지 {
+
+	public static void main(String[] args) throws IOException {
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
+		
+		String str = null;
+		int n = 0;
+		int cnt = 0;
+		int[] remainderArr = new int[42];
+		while((str = br.readLine())!=null ) {
+			for(int i =0; i<10; i++) {
+				n =Integer.parseInt(str);
+			}
+			for(int i=0; i<10; i++) {
+				remainderArr[n%42] += 1;
+			}
+			for(int i=0; i<10; i++) {
+				if(remainderArr[i]>=2) {
+					cnt ++;
+				}
+			}
+			
+				
+			}
+		System.out.println(cnt);
+
+	}
+
+}

@@ -26,8 +26,7 @@ public class SE_1859백만장자 {
 			
 			//max를 제일 끝 값으로 설정
 			long max = priceArr[(N-1)];
-//			int idx = 0;
-//			int startIdx=0;
+
 			long maxSum = 0;
 			
 			//뒤에서부터(N-1제외) max와 비교하면서 max보다 작으면 max와의 차를 이익에 더할 것
@@ -39,24 +38,7 @@ public class SE_1859백만장자 {
 					maxSum+= max-priceArr[j];
 				}
 			}
-//			while(startIdx<=N) {
-//				for(int i=startIdx; i<N; i++) {
-//					if(max<priceArr[i]) {
-//						idx = i;
-//						max = priceArr[i];
-//					}
-//				}
-//				for(int j=startIdx; j<idx; j++) {
-//					maxSum+= max-priceArr[j];
-//					System.out.println(maxSum);
-//				}
-//				if(idx == startIdx) {
-//					idx++;
-//					startIdx++;
-//				}
-//				startIdx = idx+1;
-//				
-//				max=0;
+
 			
 			
 			System.out.println("#"+t+" "+maxSum);
