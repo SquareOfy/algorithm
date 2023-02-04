@@ -19,7 +19,10 @@ public class SE_1204최빈수 {
 		for(int i =1; i<=t; i++) {
 			//몇 번째 테스트케이스인지 입력 받기
 			String testcase = br.readLine();
-	
+			int testnum = Integer.parseInt(testcase);
+			
+			
+			if(testnum<=t) {
 				int max =0;
 				int[] cntArr=new int[101];
 				
@@ -37,9 +40,10 @@ public class SE_1204최빈수 {
 					}
 				}
 			System.out.println("#" +i + " "+idx);
+		}
 
 				
-		}
+	}
 
 	}
 }
