@@ -1,0 +1,51 @@
+package D2;
+
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
+
+public class SE_1984중간평균값 {
+
+	public static void main(String[] args) throws IOException {
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
+		
+		String testcase = br.readLine();
+		int T = Integer.parseInt(testcase);
+		int[] numArr = new int[10];
+		for(int t=1; t<=T; t++) {
+			String[] Arr = br.readLine().split(" ");
+			for(int i=0; i<10; i++) {
+				numArr[i] = Integer.parseInt(Arr[i]);
+			}
+			int max = numArr[0];
+			int min = numArr[0];
+			int minIdx =0;
+			int maxIdx = 0;
+			for(int i=1; i<10; i++) {
+				if (numArr[i]>max) {
+					maxIdx = i;
+					max = numArr[i];
+				}
+				if (numArr[i]<min) {
+					minIdx = i;
+					min = numArr[i];
+				
+				}
+			}
+			numArr[minIdx] =0;
+			numArr[maxIdx] =0;
+			int sum =0;
+			for(int i=0; i<10; i++) {
+				sum+=numArr[i];
+			}
+			bw.write("#"+t+" "+sum/10);
+			
+		}
+		
+
+	}
+
+}

@@ -1,0 +1,69 @@
+package D2;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.Arrays;
+
+public class SE_1859백만장자 {
+	public static void main(String[] args) throws IOException {
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		String testcase = br.readLine();
+		int T = Integer.parseInt(testcase);
+		for(int t=1; t<=T; t++) {
+			
+			//배열에 숫자 넣기
+			String number = br.readLine();
+			int N = Integer.parseInt(number);
+			
+			String[] Arr = br.readLine().split(" ");
+			
+			
+			int[] priceArr = new int[Arr.length];
+			for(int i=0; i<N; i++) {
+				priceArr[i] = Integer.parseInt(Arr[i]);
+			}
+			
+			
+			long max = priceArr[(N-1)];
+//			int idx = 0;
+//			int startIdx=0;
+			long maxSum = 0;
+			
+			for(int j =N-2; j>=0; j++) {
+				if(max<priceArr[j]) {
+					max = priceArr[j];
+				}else {
+					maxSum+= max=priceArr[j];
+				}
+			}
+//			while(startIdx<=N) {
+//				for(int i=startIdx; i<N; i++) {
+//					if(max<priceArr[i]) {
+//						idx = i;
+//						max = priceArr[i];
+//					}
+//				}
+//				for(int j=startIdx; j<idx; j++) {
+//					maxSum+= max-priceArr[j];
+//					System.out.println(maxSum);
+//				}
+//				if(idx == startIdx) {
+//					idx++;
+//					startIdx++;
+//				}
+//				startIdx = idx+1;
+//				
+//				max=0;
+			
+			}
+			System.out.println("#"+t+" "+maxSum);
+		
+	}
+}
+	
+		
+
+	
+
+
