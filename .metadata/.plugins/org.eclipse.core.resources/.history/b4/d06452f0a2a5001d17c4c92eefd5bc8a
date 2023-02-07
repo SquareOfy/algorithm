@@ -1,0 +1,20 @@
+
+public class javatest {
+
+	
+		public <K> void genericMethod(K k) {
+			//타입 파라미터를 메서드 내부에서 타입처럼 사용 가능
+			// 제네릭 메서드의 타입 파라미터는 메서드 내부로만 범위 한정
+			//T : 클래스의 타입 파라미터
+			//K : 메서드 만의 타입 파라미터
+			System.out.println("T: " + data.getClass().getName()); //클래스의 타입이 나옴
+			System.out.println("K: "+ k.getClass().getName()); // 메서드의 타입이 나옴
+		}
+		
+		public static void main(String[] args) {
+			javatest mmtest = new javatest();
+			mmtest.genericMethod("k");
+		}
+	}
+
+
