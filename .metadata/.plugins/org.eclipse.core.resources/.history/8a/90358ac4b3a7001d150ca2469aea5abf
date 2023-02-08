@@ -1,0 +1,36 @@
+package Silver2;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.StringTokenizer;
+
+public class Baek_4948베르트랑공준 {
+
+	public static void main(String[] args) {
+
+		public static void main(String[] args) throws IOException {
+			BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+			
+			
+			StringTokenizer st = new StringTokenizer(br.readLine()," ");
+			int M = Integer.parseInt(st.nextToken());
+			int N = Integer.parseInt(st.nextToken());
+			
+			int flag = 0;
+			for(int i=2; i*i<=N; i++) {
+				flag =0;
+				if(i==1 || i==0) flag =1;
+				for(int j=2; j*j<=i; j++) {
+					if(i%j==0) flag =1;
+				}
+				if(flag==0) System.out.println(i);
+				
+			}
+			br.close();
+		}
+		
+
+	}
+
+}
