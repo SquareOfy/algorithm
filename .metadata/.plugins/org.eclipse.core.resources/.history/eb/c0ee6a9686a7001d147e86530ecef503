@@ -1,0 +1,16 @@
+package Bronze2;
+
+public class Baek_15596정수n개합 {
+
+	long sum(int[] a) {
+		for (int i =0; i< a.length; i++) {
+			long result =0;
+			result += a[i];
+			return result;
+		}
+		
+		
+
+	}
+
+}
