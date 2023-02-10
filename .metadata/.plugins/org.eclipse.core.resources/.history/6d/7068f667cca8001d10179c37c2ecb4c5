@@ -26,16 +26,16 @@ public class Baek_9020골드바흐의추측 {
 		int T = Integer.parseInt(br.readLine());
 		for(int t=1; t<=T; t++) {
 			int N = Integer.parseInt(br.readLine());
-			int gap = 100000;
+			int gap = 0;
 			int num = 0;
 			for(int i =2; i<N; i++) {
-				if(isPrime(i)&&isPrime(N-i)&&gap>Math.abs(N-2*i)) {
+				if(isPrime(N-i)&&gap>Math.abs(N-2*i)) {
 					gap = Math.abs(N-2*i);
 					num = i;
 				}
 			}
 		
-		System.out.printf("%d %d\n",num, N-num);
+		System.out.printf("%d %d\n",N-num, num);
 		}
 	}
 

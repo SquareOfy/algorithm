@@ -10,6 +10,10 @@ public class Baek_9020골드바흐의추측 {
 		
 		int flag = 0;
 			outer : for(int j=2; j*j<=num; j++) {
+				if(num==1 || num==0) {
+					flag =1;
+					break outer;
+				}
 				if(num%j==0) {
 					flag =1;
 					break outer;
@@ -25,18 +29,22 @@ public class Baek_9020골드바흐의추측 {
 		
 		int T = Integer.parseInt(br.readLine());
 		for(int t=1; t<=T; t++) {
+			
 			int N = Integer.parseInt(br.readLine());
-			int gap = 100000;
-			int num = 0;
-			for(int i =2; i<N; i++) {
-				if(isPrime(i)&&isPrime(N-i)&&gap>Math.abs(N-2*i)) {
-					gap = Math.abs(N-2*i);
-					num = i;
+			int flag = 0;
+			outer : for(int j=2; j*j<=num; j++) {
+				if(num==1 || num==0) {
+					flag =1;
+					break outer;
 				}
-			}
-		
-		System.out.printf("%d %d\n",num, N-num);
+				if(num%j==0) {
+					flag =1;
+					break outer;
+			
 		}
+		
+		System.out.println();
+
 	}
 
 }

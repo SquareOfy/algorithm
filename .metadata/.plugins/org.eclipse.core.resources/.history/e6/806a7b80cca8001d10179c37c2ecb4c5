@@ -35,7 +35,7 @@ public class Baek_9020골드바흐의추측 {
 				}
 			}
 		
-		System.out.printf("%d %d\n",num, N-num);
+		System.out.printf("%d %d\n",N-num, num);
 		}
 	}
 
