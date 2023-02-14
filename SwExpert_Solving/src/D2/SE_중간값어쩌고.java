@@ -2,11 +2,12 @@ package D2;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
+import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 
 public class SE_중간값어쩌고 {
-	public static void main(String[] args) {
+	public static void main(String[] args) throws IOException {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
 		
@@ -49,17 +50,16 @@ public class SE_중간값어쩌고 {
 			}
 			mean = Math.round(sum/8.0);
 			bw.write("#"+t+" "+mean+"\n");
+			br.close();
+			bw.flush();
+			bw.close();
 			
 		}
 		
 		
-		br.close();
-		bw.flush();
-		bw.close();
+		
 	}
-	
+
 }
 
 
-	}
-}
