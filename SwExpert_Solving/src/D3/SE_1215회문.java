@@ -21,7 +21,7 @@ public class SE_1215회문 {
 			}
 			
 			for(int i=0; i<8; i++) {
-				for(int j=0; j<8-N; j++) {
+				for(int j=0; j<9-N; j++) {
 					char[] word =new char[N];
 					char[] word2= new char[N];
 					int flag = 0;
@@ -38,12 +38,16 @@ public class SE_1215회문 {
 							flag2 =1;
 						}
 					}
-					if(flag==0) cnt++;
-					if(flag2==0) cnt++;
+					if(flag==0) {
+						cnt++;
+					}
+					if(flag2==0) {					
+						cnt++;
+					}
 				}
 			}
 			System.out.printf("#%d %d\n", t, cnt);
 		}
 	}
-
 }
+

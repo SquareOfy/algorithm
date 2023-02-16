@@ -14,7 +14,7 @@ public class SE_10570제곱팰린드롬수 {
 			int b = sc.nextInt();
 
 			for (int i = a; i <= b; i++) {
-				for (int j = 1; j * j <= i; j++) {
+				for (int j = 1; j * j <= i; j++) { //더 효율적일 순 없나 ,, Math 써야하나 ,,
 					if(j*j == i)
 					
 				}

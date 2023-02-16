@@ -9,6 +9,7 @@ import java.io.OutputStreamWriter;
 public class SE_중간값어쩌고 {
 	public static void main(String[] args) throws IOException {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
 		
 		String testcase = br.readLine().trim();
 		int T = Integer.parseInt(testcase);
@@ -48,6 +49,7 @@ public class SE_중간값어쩌고 {
 				sum+=numArr[i];
 			}
 			mean = Math.round(sum/8.0);
+			bw.write("#"+t+" "+mean+"\n");
 			System.out.println("#"+ t + " "+ mean);
 			
 			
