@@ -3,6 +3,7 @@ package Silver1;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.Arrays;
 import java.util.StringTokenizer;
 
 public class Baek_2527직사각형 {
@@ -29,9 +30,7 @@ public class Baek_2527직사각형 {
 			
 			//x축 사이 최장거리
 				
-			System.out.println(h);
-			System.out.println( Math.max(Math.abs(square2[3]-square1[1]),(square2[1]-square1[3])));
-			System.out.println(w);
+		
 			
 			//c, b,d,a순으로 찾아보쟈 .........
 			boolean findC1 = (square1[0]==square2[2]&&square1[1]==square2[3]) ||(square1[2]==square2[0]&&square1[3]==square2[1]);
@@ -41,7 +40,7 @@ public class Baek_2527직사각형 {
 			if(findC1 || findC2) {
 				System.out.println("c");
 				
-			}else if(Math.max(Math.abs(square2[2]-square1[0]),Math.abs(square2[0]-square1[2]))> w || Math.max(Math.abs(square2[3]-square1[1]),(square2[1]-square1[3])) >h  ) {
+			}else if(Math.max(Math.abs(square2[2]-square1[0]),Math.abs(square2[0]-square1[2]))> w || Math.max(Math.abs(square2[3]-square1[1]),Math.abs(square2[1]-square1[3])) >h  ) {
 				System.out.println("d");
 			}else if(square1[0]==square2[2]||square1[2]==square2[0] || square1[1]==square2[3]||square1[3]==square2[1]) {
 				System.out.println("b");

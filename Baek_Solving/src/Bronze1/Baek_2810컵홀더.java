@@ -14,6 +14,18 @@ public class Baek_2810컵홀더 {
 		
 		char[] seats = br.readLine().toCharArray();
 		
+		int cnt = 1;
+		
+		for(int i = 0; i<N; i++) {
+			if(seats[i]=='S') {
+				cnt++;
+			}else if(i<N-1 && seats[i]=='L' && seats[i+1]=='L') {
+				cnt++;
+				i++;
+			}
+		}
+		
+		System.out.println(Math.min(N, cnt));
 	}
 
 }
