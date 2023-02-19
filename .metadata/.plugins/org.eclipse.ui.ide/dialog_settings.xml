@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section name="Workbench">
 	<list key="org.eclipse.ui.internal.wizards.datatransfer.SmartImportRootWizardPage.knownSources">
+<<<<<<< HEAD
 		<item value="C:\Users\yeong\Dropbox\코딩\JAVA\myeclipseworkspace"/>
+=======
+		<item value="C:\Users\AAA\Dropbox\코딩\GitRepo\알고리즘 스터디\algorithm"/>
+>>>>>>> 24c8516cf1903293d646e75f0b2b7c30433decbd
 		<item value="C:\Users\yeong\Desktop\코딩\JAVA\GitRepo\yy_practice_ssafy\맛집"/>
 		<item value="C:\Users\SSAFY\Desktop\java_ws_07_2"/>
 		<item value="C:\Users\yeong\Desktop\코딩\JAVA\myeclipseworkspace\SwExpert_Solving"/>
