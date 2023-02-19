@@ -27,6 +27,7 @@ public class SE_10570제곱팰린드롬수 {
 						}
 					}
 			System.out.printf("#%d %d\n", t, cnt);
+				
 		
 	}
 
