@@ -21,10 +21,13 @@ public class Baek_10158개미시초를피하자 {
 		st = new StringTokenizer(br.readLine());
 		int p = Integer.parseInt(st.nextToken()); int q = Integer.parseInt(st.nextToken());
 	
-		long t = Integer.parseInt(br.readLine());
+		int t = Integer.parseInt(br.readLine());
 		
 		
-		
+
+		bw.write(sb.toString());
+		bw.flush();
+		bw.close();
 
 	}
 

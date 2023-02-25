@@ -37,8 +37,9 @@ public class SE_1225암호생성기 {
 				for (int j = 0; j < idx; j++) {
 					System.out.print(numbers[j] + " ");
 				}
-				System.out.println();
+				
 			}
+			System.out.println();
 		}
 	}
 
