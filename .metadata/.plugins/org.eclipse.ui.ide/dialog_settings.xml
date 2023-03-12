@@ -1,7 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section name="Workbench">
 	<list key="org.eclipse.ui.internal.wizards.datatransfer.SmartImportRootWizardPage.knownSources">
+<<<<<<< HEAD
 		<item value="C:\Users\yeong\Dropbox\코딩\JAVA\Spring실습\hello-spring"/>
 		<item value="C:\Users\yeong\Dropbox\코딩\JAVA\Spring실습"/>
+=======
+		<item value="C:\Users\yeong\Dropbox\코딩\JAVA\myeclipseworkspace"/>
+		<item value="C:\Users\yeong\Dropbox\코딩\GitRepo\알고리즘 스터디\algorithm"/>
+>>>>>>> 92471fdb2e8d035bbdd5912de9e7f970077f14a0
 	</list>
 </section>

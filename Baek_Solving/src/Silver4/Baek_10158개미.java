@@ -1,17 +1,27 @@
 package Silver4;
 
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.Scanner;
+import java.io.OutputStreamWriter;
+import java.util.StringTokenizer;
 
 public class Baek_10158개미 {
 
-	public static void main(String[] args) {
-		Scanner sc = new Scanner(System.in);
+	public static void main(String[] args) throws IOException {
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
+		StringBuilder sb = new StringBuilder();
+		StringTokenizer st;
 		
-		int w = sc.nextInt(); int h = sc.nextInt();
-		int p = sc.nextInt(); int q = sc.nextInt();
-		int t = sc.nextInt();
+		st = new StringTokenizer(br.readLine());
+		int w = Integer.parseInt(st.nextToken()); int h = Integer.parseInt(st.nextToken());
+		
+		st = new StringTokenizer(br.readLine());
+		int p = Integer.parseInt(st.nextToken()); int q = Integer.parseInt(st.nextToken());
+	
+		long t = Integer.parseInt(br.readLine());
 		
 		
 		//방향벡터 , 오른쪽 위 대각 또는 왼쪽 위 대각 또는 왼쪽 아래 대각 또는 오른쪽 위 순
@@ -30,15 +40,18 @@ public class Baek_10158개미 {
 			if(q+dr>h|| q+dr<0) {
 				dr *= -1;
 			}
-			if(p+dc>w || p+dr<0){
+			if(p+dc>w || p+dc<0){
 				dc *= -1;
 			}
 			p += dc;
 			q += dr;
 			t--;
+			
 		}
-		
-		System.out.println(p+" "+q);
+		sb.append(p+" "+q);
+		bw.write(sb.toString());
+		bw.flush();
+		bw.close();
 		
 
 	}
